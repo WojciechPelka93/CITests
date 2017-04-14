@@ -3,13 +3,13 @@
 
 <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration> 
-    <MSTestExePath>??</MSTestExePath>
-    <ProjectDirectory>??</ProjectDirectory>
-    <SolutionName>??</SolutionName>
+    <MSTestExePath></MSTestExePath>
+    <ProjectDirectory></ProjectDirectory>
+    <SolutionName>CITester.sln</SolutionName>
 </PropertyGroup>
 
 <ItemGroup>
-    <UnitTestAssemblies Include="$(ProjectDirectory)\**\bin\$(Configuration)\*.Test.dll" />
+    <UnitTestAssemblies Include="$(ProjectDirectory)\**\**\bin\$(Configuration)\*.Test.dll" />
 </ItemGroup>
 
 
@@ -18,12 +18,13 @@
 </Target>
 
 <Target Name="Compile">
+<Message Text="$(ProjectDirectory)\$(SolutionName)" ></Message>
     <MSBuild Projects="$(ProjectDirectory)\$(SolutionName)" />
 </Target>
 
 <Target Name="RunUnitTests">
     <Message Text="Starting unit tests for containers:" ></Message>
-    <Message Text="%(UnitTestAssemblies.Filename)" ></Message>
-    <Exec Command="$(PathToMsTest) /testcontainer:%(UnitTestAssemblies.Filename)" />
+    <Message Text="%(UnitTestAssemblies.FullPath)" ></Message>
+    <Exec Command='"$(MSTestExePath)" /testcontainer:"%(UnitTestAssemblies.FullPath)"' />
 </Target>
 </Project>

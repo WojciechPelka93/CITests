@@ -3,8 +3,6 @@
 
 <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration> 
-    <MSTestExePath></MSTestExePath>
-    <ProjectDirectory></ProjectDirectory>
     <SolutionName>CITester.sln</SolutionName>
 </PropertyGroup>
 
@@ -12,14 +10,12 @@
     <UnitTestAssemblies Include="$(ProjectDirectory)\**\**\bin\$(Configuration)\*.Test.dll" />
 </ItemGroup>
 
-
 <Target Name="CICompileAndVerify" DependsOnTargets="Compile">
     <CallTarget Targets="RunUnitTests"></CallTarget>
 </Target>
 
 <Target Name="Compile">
-<Message Text="$(ProjectDirectory)\$(SolutionName)" ></Message>
-    <MSBuild Projects="$(ProjectDirectory)\CITesterCore.xproj" />
+    <MSBuild Projects="$(ProjectDirectory)\$(SolutionName)" />
 </Target>
 
 <Target Name="RunUnitTests">

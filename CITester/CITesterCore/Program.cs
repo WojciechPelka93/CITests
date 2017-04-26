@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace CITester
+namespace CITesterCore
 {
-    class Program
+    public class Program
     {
-        static int Main(string[] args)
+        public static void Main(string[] args)
         {
-            return 0;
         }
     }
 }

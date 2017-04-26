@@ -19,7 +19,7 @@
 
 <Target Name="Compile">
 <Message Text="$(ProjectDirectory)\$(SolutionName)" ></Message>
-    <MSBuild Projects="$(ProjectDirectory)\$(SolutionName)" />
+    <MSBuild Projects="$(ProjectDirectory)\CITesterCore.xproj" />
 </Target>
 
 <Target Name="RunUnitTests">

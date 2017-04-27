@@ -12,9 +12,9 @@ namespace WebCoreApplication.Services
             return a + b;
         }
 
-        public double MultiplyNumbers(double a, double b, double c)
+        public double MultiplyTwoNumbers(double a, double b)
         {
-            return a * b * c; 
+            return a * b; 
         }
     }
 }

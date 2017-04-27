@@ -14,7 +14,7 @@ namespace WebCoreApplication.Services
 
         public double MultiplyTwoNumbers(double a, double b)
         {
-            return b * b; 
+            return b * b * b; 
         }
     }
 }
